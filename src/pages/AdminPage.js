@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AdminSchedule from "../components/AdminSchedule";
 import AppointmentList from "../components/AppointmentList";
 import GuessNumberGame from "../components/GuessNumberGame";
 
@@ -8,7 +7,7 @@ function AdminPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  const correctPassword = "barber123";
+  const correctPassword = "Humberto";
 
   const handlePasswordSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +50,6 @@ function AdminPage() {
   return (
     <div>
       <AppointmentList />
-      <AdminSchedule />
       <GuessNumberGame />
     </div>
   );

@@ -5,16 +5,17 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 function UserBooking() {
-  const [excludedData, setExcludedData] = useState([]); // Datos de días y horarios excluidos
-  const [allSlots, setAllSlots] = useState([]); // Todos los horarios posibles
-  const [selectedDay, setSelectedDay] = useState(null); // Día seleccionado
-  const [filteredSlots, setFilteredSlots] = useState([]); // Horarios disponibles
-  const [selectedSlot, setSelectedSlot] = useState(null); // Horario elegido
-  const [selectedBarber, setSelectedBarber] = useState(""); // Barbero seleccionado
-  const [nombre, setNombre] = useState(""); // Nombre del usuario
-  const [telefono, setTelefono] = useState(""); // Teléfono del usuario
+  const [appointments, setAppointments] = useState([]);
+  const [excludedData, setExcludedData] = useState([]);
+  const [allSlots, setAllSlots] = useState([]);
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [filteredSlots, setFilteredSlots] = useState([]);
+  const [selectedSlot, setSelectedSlot] = useState(null);
+  const [selectedBarber, setSelectedBarber] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [telefono, setTelefono] = useState("");
 
-  // Función para formatear la fecha como dd/MM/yyyy
+  // Formatear fecha a DD/MM/YYYY
   const formatDate = (date) => {
     const day = date.getDate().toString().padStart(2, "0");
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
@@ -22,58 +23,66 @@ function UserBooking() {
     return `${day}/${month}/${year}`;
   };
 
-  const handleDateChange = (date) => {
-    const formattedDate = formatDate(date);
-    setSelectedDay(formattedDate);
-  };
-
+  // Generar horarios disponibles
   useEffect(() => {
     const generateAllSlots = () => {
       const hours = [];
-      hours.push(`11:00 a.m.`);
-      hours.push(`11:30 a.m.`);
-      hours.push(`12:30 p.m.`);
-      hours.push(`12:30 p.m.`);
+      hours.push("11:00 a.m.", "11:30 a.m.", "12:00 p.m.", "12:30 p.m.");
       for (let h = 1; h <= 7; h++) {
-        hours.push(`0${h}:00 p.m.`);
-        hours.push(`0${h}:30 p.m.`);
+        hours.push(`0${h}:00 p.m.`, `0${h}:30 p.m.`);
       }
       setAllSlots(hours);
     };
     generateAllSlots();
   }, []);
 
-  // Obtener horarios excluidos de Firebase
+  // Obtener datos de Firebase
   useEffect(() => {
-    const fetchExcludedData = async () => {
-      const excludedSnapshot = await getDocs(collection(db, "excludedDaysAndSlots"));
-      const exclusions = excludedSnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setExcludedData(exclusions);
+    const fetchAppointments = async () => {
+      const querySnapshot = await getDocs(collection(db, "appointments"));
+      setAppointments(querySnapshot.docs.map((doc) => doc.data()));
     };
+    const fetchExcludedData = async () => {
+      const querySnapshot = await getDocs(collection(db, "excludedDaysAndSlots"));
+      setExcludedData(querySnapshot.docs.map((doc) => doc.data()));
+    };
+    fetchAppointments();
     fetchExcludedData();
   }, []);
 
-  // Filtrar horarios disponibles según el día seleccionado
+  // Filtrar horarios disponibles
   useEffect(() => {
-    if (selectedDay) {
-      const exclusionsForDay = excludedData.find((data) => data.day === selectedDay);
-      const excludedSlots = exclusionsForDay ? exclusionsForDay.excludedSlots : [];
-      const availableSlots = allSlots.filter((time) => !excludedSlots.includes(time));
-      setFilteredSlots(availableSlots);
-    } else {
+    if (!selectedBarber || !selectedDay) {
       setFilteredSlots([]);
+      return;
     }
-  }, [selectedDay, excludedData, allSlots]);
 
-  // Manejar la reserva
+    const formattedDay = formatDate(selectedDay); // Formatear fecha a DD/MM/YYYY
+
+    // Filtrar citas y horarios excluidos del barbero
+    const takenSlots = appointments
+      .filter((appointment) => appointment.barber === selectedBarber && appointment.day === formattedDay)
+      .map((appointment) => appointment.time);
+
+    const excludedSlots = excludedData
+      .filter((excluded) => excluded.barber === selectedBarber && excluded.day === formattedDay)
+      .flatMap((excluded) => excluded.slots);
+
+    // Filtrar horarios disponibles
+    const availableSlots = allSlots.filter(
+      (slot) => !takenSlots.includes(slot) && !excludedSlots.includes(slot)
+    );
+
+    setFilteredSlots(availableSlots);
+  }, [selectedDay, selectedBarber, appointments, excludedData, allSlots]);
+
+  // Manejar reserva
   const handleBooking = async () => {
     try {
       if (selectedSlot && selectedBarber && nombre && telefono) {
+        const formattedDay = formatDate(selectedDay); // Formatear fecha a DD/MM/YYYY
         const appointment = {
-          day: selectedDay, // La fecha se guarda en el formato dd/MM/yyyy
+          day: formattedDay,
           time: selectedSlot,
           barber: selectedBarber,
           name: nombre,
@@ -83,6 +92,8 @@ function UserBooking() {
         alert("Cita agendada con éxito");
         setSelectedSlot(null);
         setSelectedBarber("");
+        setNombre("");
+        setTelefono("");
       } else {
         alert("Por favor, llena el formulario.");
       }
@@ -92,16 +103,18 @@ function UserBooking() {
   };
 
   return (
-    <div className="container-flui bg-dark text-white py-5">
+    <div className="container-fluid bg-dark text-white py-5">
       <div className="container">
         <h2 className="text-center text-warning">Agenda una cita</h2>
 
         {/* Selección de día */}
         <div className="mb-3">
-          <label htmlFor="day" className="py-1 d-block form-date">Día:</label>
+          <label htmlFor="day" className="py-1 d-block form-label">
+            Día:
+          </label>
           <DatePicker
-            selected={selectedDay ? new Date(selectedDay.split('/').reverse().join('/')) : null} // Convertir el formato dd/MM/yyyy a Date
-            onChange={handleDateChange}
+            selected={selectedDay}
+            onChange={(date) => setSelectedDay(date)} // Almacenar fecha como Date
             dateFormat="dd/MM/yyyy"
             className="form-control"
             placeholderText="Selecciona un día"
@@ -125,15 +138,15 @@ function UserBooking() {
         </div>
 
         {/* Selección de horario */}
-        {(selectedDay && selectedBarber) && (
+        {selectedDay && selectedBarber && (
           <div>
             <div className="mb-3">
               <label htmlFor="slot" className="form-label">Horario:</label>
               <select
                 id="slot"
                 className="form-select"
-                onChange={(e) => setSelectedSlot(e.target.value)}
                 value={selectedSlot || ""}
+                onChange={(e) => setSelectedSlot(e.target.value)}
               >
                 <option value="">Selecciona un horario</option>
                 {filteredSlots.map((time, index) => (
@@ -143,6 +156,7 @@ function UserBooking() {
                 ))}
               </select>
             </div>
+
             <div className="mb-3">
               <label htmlFor="nombre" className="form-label">Nombre o Apodo:</label>
               <input
@@ -152,7 +166,6 @@ function UserBooking() {
                 placeholder="Introduce tu nombre o apodo"
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
-                required
               />
             </div>
             <div className="mb-3">
@@ -164,13 +177,12 @@ function UserBooking() {
                 placeholder="Introduce tu teléfono"
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
-                required
               />
             </div>
           </div>
         )}
 
-        {/* Botón para agendar la cita */}
+        {/* Botón para agendar */}
         <div className="d-flex justify-content-center">
           <button
             className="btn btn-primary w-25"

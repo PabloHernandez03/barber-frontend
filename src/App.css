@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 150px por columna */
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+input[type="number"] {
+  padding: 0.5rem;
+  width: 200px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: bold;
+}

@@ -1,20 +1,26 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "../App.css";
 
 function AdminSchedule() {
-  const [day, setDay] = useState("Lunes"); // Día seleccionado por defecto
+  const [day, setDay] = useState(null); // Día seleccionado por defecto
   const [excludedSlots, setExcludedSlots] = useState([]); // Horarios excluidos
+  const [selectedBarber, setSelectedBarber] = useState("");
+  const [allSlotsSelected, setAllSlotsSelected] = useState(false); // Nuevo estado
 
   // Genera los horarios disponibles con intervalos de 30 minutos
-  const generateTimeSlots = (start, end) => {
+  const generateTimeSlots = () => {
     const slots = [];
-    let current = new Date(`1970-01-01T${start}:00`);
-    const endDate = new Date(`1970-01-01T${end}:00`);
-
-    while (current <= endDate) {
-      slots.push(current.toTimeString().slice(0, 5)); // Formato HH:MM
-      current = new Date(current.getTime() + 30 * 60 * 1000); // Agrega 30 minutos
+    slots.push(`11:00 a.m.`);
+    slots.push(`11:30 a.m.`);
+    slots.push(`12:30 p.m.`);
+    slots.push(`12:30 p.m.`);
+    for (let h = 1; h <= 7; h++) {
+      slots.push(`0${h}:00 p.m.`);
+      slots.push(`0${h}:30 p.m.`);
     }
     return slots;
   };
@@ -28,59 +34,104 @@ function AdminSchedule() {
       await addDoc(collection(db, "excludedDaysAndSlots"), data);
       alert("Días/horarios excluidos añadidos con éxito");
       setExcludedSlots([]); // Limpia la selección después de guardar
+      setAllSlotsSelected(false); // Reinicia la selección de "todos"
     } catch (error) {
       console.error("Error al guardar los horarios excluidos:", error);
     }
   };
 
-  const availableSlots = generateTimeSlots("11:00", "20:00");
+  const handleSelectAll = (e) => {
+    const slots = generateTimeSlots();
+    if (e.target.checked) {
+      setExcludedSlots(slots);
+      setAllSlotsSelected(true);
+    } else {
+      setExcludedSlots([]);
+      setAllSlotsSelected(false);
+    }
+  };
+
+  const availableSlots = generateTimeSlots();
 
   return (
-    <div className="container mt-4">
-      <h2>Configurar Días y Horarios Excluidos</h2>
+    <div className="container-fluid bg-dark text-white py-1">
+      <div className="container mb-3">
+        <h2 className="text-warning">Configurar Excepciones Días y Horarios</h2>
 
-      <div className="mb-3">
-        <label htmlFor="day" className="form-label">Día:</label>
-        <select
-          id="day"
-          className="form-select"
-          value={day}
-          onChange={(e) => setDay(e.target.value)}
-        >
-          <option value="Lunes">Lunes</option>
-          <option value="Martes">Martes</option>
-          <option value="Miércoles">Miércoles</option>
-          <option value="Jueves">Jueves</option>
-          <option value="Viernes">Viernes</option>
-          <option value="Sábado">Sábado</option>
-          <option value="Domingo">Domingo</option>
-        </select>
+        {/* Selección de barbero */}
+        <div className="mb-2">
+          <label htmlFor="selectedBarber" className="form-label">Barbero:</label>
+          <select
+            id="selectedBarber"
+            className="form-select"
+            value={selectedBarber}
+            onChange={(e) => setSelectedBarber(e.target.value)}
+          >
+            <option value="">Selecciona un barbero</option>
+            <option value="Humberto">Humberto</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        {/* Selección de día */}
+        {selectedBarber && (
+          <div>
+            <label htmlFor="day" className="py-1 d-block form-date">Día:</label>
+            <DatePicker
+              selected={day}
+              onChange={(date) => setDay(date)}
+              dateFormat="dd/MM/yyyy"
+              className="form-control"
+              placeholderText="Selecciona un día"
+              minDate={new Date()}
+            />
+          </div>
+        )}
       </div>
 
-      <div className="mb-3">
-        <h3>Excluye horarios</h3>
-        {availableSlots.map((slot) => (
-          <div key={slot} className="form-check">
+      {/* Selección de Exclusiones */}
+      {(day && selectedBarber) && (
+        <div className="container mb-3">
+          <h3 className="text-warning">Excluye horarios</h3>
+          {/* Checkbox para seleccionar todos */}
+          <div className="form-check mb-3">
             <input
               type="checkbox"
               className="form-check-input"
-              value={slot}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  setExcludedSlots([...excludedSlots, e.target.value]);
-                } else {
-                  setExcludedSlots(excludedSlots.filter((s) => s !== e.target.value));
-                }
-              }}
+              id="selectAllSlots"
+              checked={allSlotsSelected}
+              onChange={handleSelectAll}
             />
-            <label className="form-check-label">{slot}</label>
+            <label htmlFor="selectAllSlots" className="form-check-label">
+              Seleccionar todos los horarios
+            </label>
           </div>
-        ))}
-      </div>
-
-      <button className="btn btn-primary" onClick={handleAddExclusion}>
-        Guardar Exclusiones
-      </button>
+          <div className="slots-grid">
+            {availableSlots.map((slot) => (
+              <div key={slot} className="form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  value={slot}
+                  checked={excludedSlots.includes(slot)}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      setExcludedSlots([...excludedSlots, e.target.value]);
+                    } else {
+                      setExcludedSlots(excludedSlots.filter((s) => s !== e.target.value));
+                      setAllSlotsSelected(false); // Desmarca "Seleccionar todos" si se deselecciona uno
+                    }
+                  }}
+                />
+                <label className="form-check-label">{slot}</label>
+              </div>
+            ))}
+          </div>
+          <button className="btn btn-primary mt-3" onClick={handleAddExclusion}>
+            Guardar Exclusiones
+          </button>
+        </div>
+      )}
     </div>
   );
 }

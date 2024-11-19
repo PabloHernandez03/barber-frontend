@@ -1,5 +1,6 @@
 import React from "react";
-// import logo from "../img/imagen.avif";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 function AboutUs() {
   return (
@@ -45,6 +46,25 @@ function AboutUs() {
           >
             +52 1 33 2825 5950
           </a><br />
+          <div className="d-flex align-items-center justify-content-center mt-1">
+            <a
+              href="https://www.facebook.com/profile.php?id=61556967958798"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue mx-2"
+              >
+              <FontAwesomeIcon icon={faFacebook} size="2x" />
+            </a>
+            <a 
+              href="https://www.facebook.com/profile.php?id=61556967958798"
+              className="text-warning text-decoration-none" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Página de Facebook
+            </a>
+          </div>
+          <br />
         </p>
       </div>
     </div>

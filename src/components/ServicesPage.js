@@ -58,10 +58,10 @@ function ServicesPage() {
   // Determinar los servicios visibles
   const visibleServices = showAll ? services : services.slice(0, 3);
   return (
-    <div className="container-fluid bg-dark text-white text-center py-3">
+    <div className="container-fluid bg-dark text-white text-center py-1">
       {/* Servicios */}
-      <div className="mt-2">
-        <h3 className="mb-4 text-warning">Nuestros Servicios</h3>
+      <div className="mt-3">
+        <h2 className="mb-2 text-warning">Nuestros Servicios</h2>
         <div className="row">
           {visibleServices.map((service) => (
             <div className="col-md-4 py-1" key={service.id}>

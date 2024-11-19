@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 
 function MyNavbar() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="black" variant="dark" expand="lg" className="font-monospace">
       <Container>
-        <Navbar.Brand as={Link} to="/">
-          <img src={require("../img/logo.webp")} alt="Royal Style BarberStudio" width="40" className="rounded-circle" style={{ margin: "5px" }}/>
-          Royal Style BarberStudio
-        </Navbar.Brand>
+      <Navbar.Brand as={Link} to="/">
+        <img src={require("../img/logo.webp")} alt="Royal Style BarberStudio" width="40" style={{ margin: "5px" }} />
+        <span className="d-none d-md-inline">Royal Style BarberStudio</span>
+        <span className="d-inline d-md-none">Royal Style</span>
+      </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">

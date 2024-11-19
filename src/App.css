@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Bebas+Neue&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap');
+
 .App {
   text-align: center;
 }
@@ -97,4 +99,8 @@ iframe {
 
 iframe:hover {
   transform: scale(1.02);
+}
+
+.fontspecial p{
+  font-family: 'Bebas Neue', sans-serif;
 }

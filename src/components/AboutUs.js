@@ -20,7 +20,7 @@ function AboutUs() {
           <strong>WhatsApp: </strong><br/>
           <strong>Humberto: </strong>
           <a 
-            href="https://wa.me/5213328412707?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana.%20¿Qué%horas%tienes%disponibles?" 
+            href="https://wa.me/5213328115400?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana.%20¿Qué%20horas%20tienes%20disponibles?"
             className="text-warning text-decoration-none" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -29,7 +29,7 @@ function AboutUs() {
           </a><br />
           <strong>Aaron: </strong>
           <a 
-            href="https://wa.me/5213330726408?text=Hola,%20quiero%20agendar%20una%20cita.%20¿Podría%20ayudarme?" 
+            href="https://wa.me/5213330726408?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana.%20¿Qué%20horas%20tienes%20disponibles?" 
             className="text-warning text-decoration-none" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -38,7 +38,7 @@ function AboutUs() {
           </a><br />
           <strong>Erick: </strong>
           <a 
-            href="https://wa.me/5213328255950?text=Hola,%20quiero%20agendar%20una%20cita.%20¿Podría%20ayudarme?" 
+            href="https://wa.me/5213328255950?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana.%20¿Qué%20horas%20tienes%20disponibles?" 
             className="text-warning text-decoration-none" 
             target="_blank" 
             rel="noopener noreferrer"

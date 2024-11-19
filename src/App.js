@@ -1,15 +1,31 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AdminPage from "./pages/AdminPage";
+import Navbar from "./components/Navbar";
 import UserPage from "./pages/UserPage";
+import Humberto from "./pages/Humberto";
+import Aaron from "./pages/Aaron";
+import Barbers from "./components/Barbers";
+// import Services from "./components/Services";
+// import Products from "./components/Products";
+import Schedule from "./components/Schedule";
+import Location from "./components/Location";
+import Agenda from "./components/Agenda";
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/citas" element={<AdminPage />} />
-        <Route path="/" element={<UserPage />} />
-      </Routes>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={<UserPage />}/>
+          <Route path="/humberto" element={<Humberto />}/>
+          <Route path="/aaron" element={<Aaron />}/>
+          <Route path="/barberos" element={<Barbers />} />
+          {/* <Route path="/servicios" element={<Services />} /> */}
+          {/* <Route path="/productos" element={<Products />} /> */}
+          <Route path="/horario" element={<Schedule />} />
+          <Route path="/ubicacion" element={<Location />} />
+          <Route path="/agenda" element={<Agenda />} />
+        </Routes>
     </Router>
   );
 }

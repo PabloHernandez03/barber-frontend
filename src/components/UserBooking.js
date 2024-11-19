@@ -133,7 +133,8 @@ function UserBooking() {
           >
             <option value="">Selecciona un barbero</option>
             <option value="Humberto">Humberto</option>
-            <option value="Barbero 2">Barbero 2</option>
+            <option value="Aaron">Aaron</option>
+            <option value="Erick">Erick</option>
           </select>
         </div>
 

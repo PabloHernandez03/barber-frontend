@@ -197,7 +197,8 @@ function AppointmentList() {
           >
             <option value="">Selecciona un barbero</option>
             <option value="Humberto">Humberto</option>
-            <option value="Otro">Otro</option>
+            <option value="Aaron">Aaron</option>
+            <option value="Erick">Erick</option>
           </select>
         </div>
 
@@ -251,6 +252,8 @@ function AppointmentList() {
                       <div className="bg-light text-dark p-3 rounded">
                         <p><strong>Día:</strong> {appointment.day}</p>
                         <p><strong>Hora:</strong> {appointment.time}</p>
+                        <p><strong>Cliente:</strong> {appointment.name}</p>
+                        <p><strong>Teléfono:</strong> {appointment.phone}</p>
                       </div>
                     </div>
                   ))}

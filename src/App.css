@@ -70,3 +70,31 @@ p {
   font-size: 1rem;
   font-weight: bold;
 }
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  height: 250px; /* Mantiene la altura de la imagen consistente */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top; /* Enfoca la parte superior de la imagen */
+  transition: transform 0.4s ease; /* Transición suave al hacer hover */
+}
+
+.image-container:hover img {
+  transform: scale(1.2); /* Efecto de zoom */
+}
+
+iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+iframe:hover {
+  transform: scale(1.02);
+}

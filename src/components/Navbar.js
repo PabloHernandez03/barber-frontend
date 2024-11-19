@@ -7,8 +7,8 @@ function MyNavbar() {
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          <img src={require("../img/imagen.avif")} alt="Royal Style Barber Studio" width="40" style={{ margin: "5px" }}/>
-          Royal Style Barber Studio
+          <img src={require("../img/logo.webp")} alt="Royal Style BarberStudio" width="40" className="rounded-circle" style={{ margin: "5px" }}/>
+          Royal Style BarberStudio
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">

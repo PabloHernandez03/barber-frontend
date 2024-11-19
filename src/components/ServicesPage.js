@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../img/imagen.avif";
+import logo from "../img/logo.webp";
 
 function ServicesPage() {
   const [showAll, setShowAll] = useState(false);

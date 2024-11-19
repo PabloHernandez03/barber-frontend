@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWhatsapp, faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const Agenda = () => {
   return (

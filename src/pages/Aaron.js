@@ -77,7 +77,7 @@ const Aaron = () => {
           <div className="mt-3">
             {/* Íconos de redes sociales */}
             <a
-              href="https://wa.me/5213328115400"
+              href="https://wa.me/5213330726408"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white mx-2"

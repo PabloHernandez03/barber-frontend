@@ -9,12 +9,12 @@ function AboutUs() {
         <p className="text-light">
           <strong>Ubicación: </strong> 
           <a 
-            href="https://www.google.com/maps/search/?api=1&query=Camino+a+la+Pedrera,+Tlajomulco+de+Zúñiga,+México" 
+            href="https://maps.app.goo.gl/dXPArC3fX3VqmBtF8" 
             className="text-warning text-decoration-none" 
             target="_blank" 
             rel="noopener noreferrer"
           >
-            Camino a la Pedrera, Tlajomulco de Zúñiga, México
+            Camino a la Pedrera #301, Tlajomulco de Zúñiga, México
           </a><br />
 
           <strong>WhatsApp: </strong><br/>

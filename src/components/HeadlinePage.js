@@ -27,8 +27,8 @@ function HeadlinePage() {
       id: 3,
       name: "Erick",
       description: "El paquete completo para un look renovado.",
-      image: require("../img/humberto.webp"),
-      link: "/humberto",
+      image: require("../img/erick.webp"),
+      link: "/erick",
     },
   ];
 
@@ -159,21 +159,21 @@ function HeadlinePage() {
           {barbers.map((barber) => (
             <div className="col-md-4 py-1" key={barber.id}>
               <Link to={barber.link} style={{ textDecoration: "none" }}>
-                <div className="card shadow-sm bg-black text-white">
+                <div className="card shadow-sm bg-black text-white bg-black">
                   <div className="card-body">
-                    <h5 className="card-title">{barber.name}</h5>
                     <div
                       className="d-flex flex-column align-items-center mb-2"
                       style={{ textAlign: "center" }}
                     >
                       <div
                         style={{
-                          width: "150px",
-                          height: "150px",
+                          width: "250px",
+                          height: "250px",
                           overflow: "hidden",
-                          borderRadius: "50%", // Corrección aquí
+                          borderRadius: "50%",
                           border: "4px solid white",
                         }}
+                        className="image-container"
                       >
                         <img
                           src={barber.image}
@@ -187,7 +187,8 @@ function HeadlinePage() {
                         />
                       </div>
                     </div>
-                    <p className="card-text">{barber.description}</p>
+                    <h4 className="card-title">{barber.name}</h4>
+                    {/* <p className="card-text">{barber.description}</p> */}
                   </div>
                 </div>
               </Link>
@@ -196,16 +197,50 @@ function HeadlinePage() {
         </div>
       </div>
 
-      {/* Horario */}
+      {/* Horario y Ubicación */}
       <div className="mt-4">
-        <h2 className="mb-2 text-warning">Horario de Atención</h2>
-        <p className="text-light" style={{fontSize:"1.1rem"}}>
-          <strong>Lunes a Sábados:</strong> 10:00 AM - 7:30 PM<br />
-        </p>
-        <p className="text-light" style={{fontSize:"1.1rem"}}>
-          <strong>Domingos:</strong> 11:00 AM - 3:30 PM<br />
-        </p>
+        <div className="row justify-content-center">
+          {/* Columna Horario */}
+          <div className="col-md-6 d-flex justify-content-center mb-1">
+            <div className="card bg-dark text-light shadow h-100 w-100">
+              <div className="card-body text-center">
+                <h2 className="card-title mb-3 text-warning">Horario de Atención</h2>
+                <p className="card-text" style={{ fontSize: "1.1rem" }}>
+                  <strong>Lunes a Sábados:</strong> 10:00 AM - 7:30 PM<br />
+                </p>
+                <p className="card-text" style={{ fontSize: "1.1rem" }}>
+                  <strong>Domingos:</strong> 11:00 AM - 3:30 PM
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Columna Ubicación */}
+          <div className="col-md-6 d-flex justify-content-center mb-1">
+            <div className="card bg-dark text-light shadow h-100 w-100">
+              <div className="card-body text-center">
+                <h2 className="card-title mb-3 text-warning">Ubicación</h2>
+                <a 
+                  href="https://maps.app.goo.gl/dXPArC3fX3VqmBtF8" 
+                  className="text-white text-decoration-none"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <div className="azul">
+                    <p className="card-text" style={{ fontSize: "1.1rem" }}>
+                      Camino a la Pedrera #301
+                    </p>
+                    <p className="card-text" style={{ fontSize: "1.1rem" }}>
+                      Tlajomulco de Zúñiga, México
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   );
 }

@@ -22,8 +22,8 @@ const barbers = [
     id: 3,
     name: "Erick",
     description: "El paquete completo para un look renovado.",
-    image: require("../img/humberto.webp"),
-    link: "/humberto",
+    image: require("../img/erick.webp"),
+    link: "/erick",
   },
 ];
 
@@ -46,8 +46,8 @@ const Barbers = () => {
                         />
                     </div>
                     <div className="card-body d-flex flex-column">
-                        <h5 className="card-title text-center text-white">{barber.name}</h5>
-                        <p className="card-text text-white">{barber.description}</p>
+                        <h3 className="card-title text-center text-white">{barber.name}</h3>
+                        {/* <p className="card-text text-white">{barber.description}</p> */}
                         <Link
                         to={barber.link}
                         className="btn btn-dark mt-auto align-self-center"

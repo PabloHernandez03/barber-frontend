@@ -6,7 +6,7 @@ const Location = () => {
   return (
     <div className="container-fluid bg-dark py-1">
       <ScrollToTop />
-      <div className="container mt-5 pt-5 pb-5 mb-5">
+      <div className="container my-5">
         <h2 className="text-warning text-center mb-4">Nuestra Ubicación</h2>
         <div className="row">
           {/* Información de la ubicación */}

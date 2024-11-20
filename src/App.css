@@ -104,3 +104,7 @@ iframe:hover {
 .fontspecial p{
   font-family: 'Bebas Neue', sans-serif;
 }
+
+.azul:hover p{
+  color:#007bff;
+}

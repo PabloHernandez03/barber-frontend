@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import UserPage from "./pages/UserPage";
 import Humberto from "./pages/Humberto";
 import Aaron from "./pages/Aaron";
+import Erick from "./pages/Erick";
 import Barbers from "./components/Barbers";
 // import Services from "./components/Services";
 // import Products from "./components/Products";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<UserPage />}/>
           <Route path="/humberto" element={<Humberto />}/>
           <Route path="/aaron" element={<Aaron />}/>
+          <Route path="/erick" element={<Erick />}/>
           <Route path="/barberos" element={<Barbers />} />
           {/* <Route path="/servicios" element={<Services />} /> */}
           {/* <Route path="/productos" element={<Products />} /> */}

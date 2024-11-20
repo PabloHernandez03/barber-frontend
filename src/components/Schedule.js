@@ -21,15 +21,15 @@ const Schedule = () => {
                 {scheduleData.map((item, index) => (
                 <div className="col-md-4 col-sm-6 mb-4" key={index}>
                     <div className="card bg-dark text-light shadow h-100">
-                    <div className="card-body text-center">
-                        <h5 className="card-title text-warning">{item.day}</h5>
-                        <p className="card-text">{item.hours}</p>
-                    </div>
+                      <div className="card-body text-center">
+                          <h5 className="card-title text-warning">{item.day}</h5>
+                          <p className="card-text">{item.hours}</p>
+                      </div>
                     </div>
                 </div>
                 ))}
             </div>
-            </div>
+          </div>
     </div>
   );
 };

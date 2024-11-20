@@ -7,50 +7,26 @@ function ServicesPage() {
   const services = [
     {
       id: 1,
-      name: "Corte de Cabello Clásico",
+      name: "Corte de Cabello",
       description: "Un corte tradicional y preciso para mantener tu estilo impecable.",
-      price: "$200 MXN",
+      price: "$120 MXN",
       time: "30 minutos",
       image: logo,
     },
     {
       id: 2,
-      name: "Barba Perfecta",
+      name: "Arreglo de barba",
       description: "Perfilado, afeitado y detalles para una barba bien cuidada.",
       price: "$150 MXN",
-      time: "25 minutos",
+      time: "30 minutos",
       image: logo,
     },
     {
       id: 3,
-      name: "Corte y Barba Combo",
-      description: "El paquete completo para un look renovado.",
-      price: "$300 MXN",
-      time: "50 minutos",
-      image: logo,
-    },
-    {
-      id: 4,
-      name: "Tinte para Cabello",
-      description: "Dale un toque de color y renueva tu estilo.",
-      price: "$400 MXN",
-      time: "1 hora",
-      image: logo,
-    },
-    {
-      id: 5,
-      name: "Tratamiento Capilar",
-      description: "Hidratación y cuidado profundo para un cabello sano.",
-      price: "$250 MXN",
-      time: "40 minutos",
-      image: logo,
-    },
-    {
-      id: 6,
-      name: "Masaje Relajante Facial",
-      description: "Relájate y disfruta de un tratamiento facial revitalizante.",
-      price: "$350 MXN",
-      time: "45 minutos",
+      name: "Corte + Afeitado",
+      description: "Corte de cabello y corte de barba.",
+      price: "$150 MXN",
+      time: "30 minutos",
       image: logo,
     },
   ];
@@ -60,7 +36,7 @@ function ServicesPage() {
   return (
     <div className="container-fluid bg-dark text-white text-center py-1">
       {/* Servicios */}
-      <div className="mt-3">
+      <div className="mt-3 mb-3">
         <h2 className="mb-2 text-warning">Nuestros Servicios</h2>
         <div className="row">
           {visibleServices.map((service) => (
@@ -106,7 +82,7 @@ function ServicesPage() {
         </div>
         {/* Botón para ver más/menos */}
         <button
-          className="btn btn-warning mt-4"
+          className="btn btn-warning mt-4 mb-4"
           onClick={() => setShowAll(!showAll)}
         >
           {showAll ? "Ver menos" : "Ver más"}

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function MyNavbar() {
   return (
-    <Navbar bg="black" variant="dark" expand="lg" className="font-monospace">
+    <Navbar bg="black" variant="dark" expand="lg" className="font-monospace sticky-top">
       <Container>
       <Navbar.Brand as={Link} to="/">
         <img src={require("../img/logo.webp")} alt="Royal Style BarberStudio" width="40" style={{ margin: "5px" }} />

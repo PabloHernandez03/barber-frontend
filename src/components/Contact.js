@@ -2,12 +2,12 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
-const Agenda = () => {
+const Contact = () => {
   const barbers = [
     {
       name: "Humberto",
       phone: "+52 1 33 2811 5400",
-      whatsappLink: "https://wa.me/5213328412707?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana.%20¿Qué%20horas%20tienes%20disponibles?",
+      whatsappLink: "https://wa.me/5213328115400?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana.%20¿Qué%20horas%20tienes%20disponibles?",
       instagram: "https://instagram.com/",
       facebook: "https://facebook.com/",
     },
@@ -105,4 +105,4 @@ const Agenda = () => {
   );
 };
 
-export default Agenda;
+export default Contact;

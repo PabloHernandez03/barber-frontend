@@ -5,12 +5,12 @@ import UserPage from "./pages/UserPage";
 import Humberto from "./pages/Humberto";
 import Aaron from "./pages/Aaron";
 import Erick from "./pages/Erick";
+import Agenda from "./pages/Agenda";
 import Barbers from "./components/Barbers";
 // import Services from "./components/Services";
 // import Products from "./components/Products";
 import Schedule from "./components/Schedule";
 import Location from "./components/Location";
-import Agenda from "./components/Agenda";
 
 function App() {
   return (

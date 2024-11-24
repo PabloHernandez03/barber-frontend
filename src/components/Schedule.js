@@ -15,8 +15,8 @@ const Schedule = () => {
   return (
     <div className="container-fluid bg-dark py-1">
         <ScrollToTop />
-        <div className="container mt-5 pt-3 pb-5 mb-5">
-            <h2 className="mb-4 text-warning text-center">Horario de Atención</h2>
+        <div className="container my-3">
+            <h1 className="mb-4 text-warning text-center">Horario de Atención</h1>
             <div className="row">
                 {scheduleData.map((item, index) => (
                 <div className="col-md-4 col-sm-6 mb-4" key={index}>

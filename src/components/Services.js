@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../img/logo.webp";
 
-function ServicesPage() {
+function Services() {
   const [showAll, setShowAll] = useState(false);
 
   const services = [
@@ -37,7 +37,7 @@ function ServicesPage() {
     <div className="container-fluid bg-dark text-white text-center py-1">
       {/* Servicios */}
       <div className="mt-3 mb-3">
-        <h2 className="mb-2 text-warning">Nuestros Servicios</h2>
+        <h1 className="mb-2 text-warning">Nuestros Servicios</h1>
         <div className="row">
           {visibleServices.map((service) => (
             <div className="col-md-4 py-1" key={service.id}>
@@ -92,4 +92,4 @@ function ServicesPage() {
   );
 }
 
-export default ServicesPage;
+export default Services;

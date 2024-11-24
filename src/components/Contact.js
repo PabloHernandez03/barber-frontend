@@ -28,9 +28,9 @@ const Contact = () => {
   ];
 
   return (
-    <div className="container-fluid bg-dark py-4">
-      <div className="container py-5">
-        <h2 className="mb-4 text-warning text-center">Agenda tu Cita</h2>
+    <div className="container-fluid bg-dark py-1">
+      <div className="container my-3">
+        <h1 className="mb-4 text-warning text-center">Agenda tu Cita</h1>
 
         <div className="card bg-dark p-4 text-light">
           {/* Ubicación */}

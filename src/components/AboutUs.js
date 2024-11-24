@@ -33,7 +33,7 @@ function AboutUs() {
         </div>
 
         {/* Facebook Link */}
-        <div className="mt-1">
+        <div className="mt-1 d-flex justify-content-center align-items-center">
           <a
             href="https://www.facebook.com/profile.php?id=61556967958798"
             target="_blank"
@@ -41,6 +41,13 @@ function AboutUs() {
             className="text-decoration-none"
           >
             <FontAwesomeIcon icon={faFacebook} size="2x" className="text-primary mx-2" />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61556967958798"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-decoration-none"
+          >
             <span className="text-warning">Página de Facebook</span>
           </a>
         </div>

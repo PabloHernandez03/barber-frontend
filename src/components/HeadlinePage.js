@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import logo from "../img/logo.webp";
 import fondo from "../img/fondo.webp";
 import "../App.css";
@@ -7,30 +6,6 @@ import "../App.css";
 // Aquí comienza el componente principal
 function HeadlinePage() {
   const [weather, setWeather] = useState(null);
-
-  const barbers = [
-    {
-      id: 1,
-      name: 'Humberto "Padrón"',
-      description: "Un corte tradicional y preciso para mantener tu estilo impecable.",
-      image: require("../img/humberto.webp"),
-      link: "/humberto",
-    },
-    {
-      id: 2,
-      name: "Aarón",
-      description: "Perfilado, afeitado y detalles para una barba bien cuidada.",
-      image: require("../img/aaron.webp"),
-      link: "/aaron",
-    },
-    {
-      id: 3,
-      name: "Erick",
-      description: "El paquete completo para un look renovado.",
-      image: require("../img/erick.webp"),
-      link: "/erick",
-    },
-  ];
 
   // Llamada a la API para obtener el clima de Guadalajara
   useEffect(() => {
@@ -151,96 +126,6 @@ function HeadlinePage() {
           <p style={{ fontSize: "0.8rem", color: "#fff" }}>Cargando...</p>
         )}
       </div>
-
-      {/* Barbero */}
-      <div className="mt-4">
-        <h2 className="mb-2 text-warning">Nuestros Barberos</h2>
-        <div className="row">
-          {barbers.map((barber) => (
-            <div className="col-md-4 py-1" key={barber.id}>
-              <Link to={barber.link} style={{ textDecoration: "none" }}>
-                <div className="card shadow-sm bg-black text-white bg-black">
-                  <div className="card-body">
-                    <div
-                      className="d-flex flex-column align-items-center mb-2"
-                      style={{ textAlign: "center" }}
-                    >
-                      <div
-                        style={{
-                          width: "250px",
-                          height: "250px",
-                          overflow: "hidden",
-                          borderRadius: "50%",
-                          border: "4px solid white",
-                        }}
-                        className="image-container"
-                      >
-                        <img
-                          src={barber.image}
-                          alt={barber.name}
-                          style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "cover",
-                            objectPosition: "top",
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <h4 className="card-title">{barber.name}</h4>
-                    {/* <p className="card-text">{barber.description}</p> */}
-                  </div>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Horario y Ubicación */}
-      <div className="mt-4">
-        <div className="row justify-content-center">
-          {/* Columna Horario */}
-          <div className="col-md-6 d-flex justify-content-center mb-1">
-            <div className="card bg-dark text-light shadow h-100 w-100">
-              <div className="card-body text-center">
-                <h2 className="card-title mb-3 text-warning">Horario de Atención</h2>
-                <p className="card-text" style={{ fontSize: "1.1rem" }}>
-                  <strong>Lunes a Sábados:</strong> 10:00 AM - 7:30 PM<br />
-                </p>
-                <p className="card-text" style={{ fontSize: "1.1rem" }}>
-                  <strong>Domingos:</strong> 11:00 AM - 3:30 PM
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Columna Ubicación */}
-          <div className="col-md-6 d-flex justify-content-center mb-1">
-            <div className="card bg-dark text-light shadow h-100 w-100">
-              <div className="card-body text-center">
-                <h2 className="card-title mb-3 text-warning">Ubicación</h2>
-                <a 
-                  href="https://maps.app.goo.gl/dXPArC3fX3VqmBtF8" 
-                  className="text-white text-decoration-none"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <div className="azul">
-                    <p className="card-text" style={{ fontSize: "1.1rem" }}>
-                      Camino a la Pedrera #301
-                    </p>
-                    <p className="card-text" style={{ fontSize: "1.1rem" }}>
-                      Tlajomulco de Zúñiga, México
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   );
 }

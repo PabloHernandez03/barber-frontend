@@ -34,7 +34,6 @@ function HeadlinePage() {
     <div className="container-fluid bg-dark text-white text-center pb-1">
     {/* Sección con fondo decorativo */}
     <div
-      className="fontspecial"
       style={{
         width: "100%",
         height: "560px",
@@ -49,18 +48,18 @@ function HeadlinePage() {
         overflow: "hidden",
       }}
     >
-      <p 
-        className="lead text-light mt-3 fw-bold"
-        style={{
-          backgroundColor: "rgba(0,0,0,0.7)", 
-          borderRadius: "20px", 
-          fontSize: "2.5rem", 
-          letterSpacing: "10px", 
-          lineHeight: "2.5rem"
-        }}
-      >
-        ROYAL STYLE BARBERSTUDIO
-      </p>
+        <p 
+          className="lead text-light mt-3 fw-bold"
+          style={{
+            backgroundColor: "rgba(0,0,0,0.7)", 
+            borderRadius: "20px", 
+            fontSize: "2.5rem", 
+            letterSpacing: "10px", 
+            lineHeight: "2.5rem"
+          }}
+        >
+          ROYAL STYLE BARBERSTUDIO
+        </p>
 
       {/* Contenedor del logo */}
       <div

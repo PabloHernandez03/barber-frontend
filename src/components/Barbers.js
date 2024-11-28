@@ -15,14 +15,14 @@ const barbers = [
     id: 2,
     name: "Aarón",
     description: "Perfilado, afeitado y detalles para una barba bien cuidada.",
-    image: require("../img/aaron.webp"),
+    image: require("../img/aaron_600.webp"),
     link: "/aaron",
   },
   {
     id: 3,
     name: "Erick",
     description: "El paquete completo para un look renovado.",
-    image: require("../img/erick.webp"),
+    image: require("../img/erick_600.webp"),
     link: "/erick",
   },
 ];

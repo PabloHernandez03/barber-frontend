@@ -11,7 +11,7 @@ const Humberto = () => {
   useEffect(() => {
     const importAll = (r) => r.keys().map(r);
     try {
-      const images = importAll(require.context('../img/humberto', false, /\.(png|jpe?g|svg|webp)$/));
+      const images = importAll(require.context('../img/humberto', false, /\.(png|jpe?g|svg|webp|avif)$/));
       setGalleryImages(images);
     } catch (error) {
       console.error("Error al cargar imágenes:", error);

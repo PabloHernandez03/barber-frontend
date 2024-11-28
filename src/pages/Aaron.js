@@ -30,7 +30,7 @@ const Aaron = () => {
           className="d-flex flex-column align-items-center mb-5"
           style={{
             textAlign: "center",
-            backgroundImage: `url(${require('../img/aaron.webp')})`,
+            backgroundImage: `url(${require('../img/aaron_1200.webp')})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             borderRadius: "10px",
@@ -48,7 +48,7 @@ const Aaron = () => {
             }}
           >
             <img
-              src={require('../img/aaron.webp')}
+              src={require('../img/aaron_300.webp')}
               alt="Foto de Aaron"
               style={{
                 width: "100%",

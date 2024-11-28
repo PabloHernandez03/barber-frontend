@@ -53,7 +53,8 @@ function HeadlinePage() {
           style={{
             backgroundColor: "rgba(0,0,0,0.7)", 
             borderRadius: "20px", 
-            fontSize: "2.5rem",
+            fontSize: "2.5rem", 
+            letterSpacing: "2px", 
             lineHeight: "2.5rem"
           }}
         >

@@ -17,7 +17,7 @@ const Schedule = () => {
         <ScrollToTop />
         <div className="container my-3">
             <h1 className="mb-4 text-warning text-center">Horario de Atención</h1>
-            <div className="row">
+            <div className="row justify-content-center">
                 {scheduleData.map((item, index) => (
                 <div className="col-md-4 col-sm-6 mb-4" key={index}>
                     <div className="card bg-dark text-light shadow h-100">

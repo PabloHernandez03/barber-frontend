@@ -34,29 +34,28 @@ const Barbers = () => {
         <div className="container mb-2 mt-4">
             <h1 className="text-center mb-4 text-warning">Conoce a nuestros Barberos</h1>
             <div className="row">
-            {barbers.map((barber) => (
-                <div className="col-md-4 mb-4" key={barber.id}>
-                    <div className="card shadow h-100 bg-black barber-card">
-                    <div className="image-container">
-                        <img
-                        src={barber.image}
-                        className="card-img-top"
-                        alt={barber.name}
-                        style={{ objectFit: "cover", height: "250px" }}
-                        />
-                    </div>
-                    <div className="card-body d-flex flex-column">
-                        <h3 className="card-title text-center text-white">{barber.name}</h3>
-                        <Link
-                        to={barber.link}
-                        className="btn btn-dark mt-auto align-self-center"
-                        >
-                        Ver Perfil
-                        </Link>
-                    </div>
-                    </div>
-                </div>
-                ))}
+              {barbers.map((barber) => (
+                  <div className="col-md-4 mb-4" key={barber.id}>
+                    <Link
+                      to={barber.link}
+                      className="text-decoration-none"
+                      >
+                      <div className="card shadow h-100 bg-black barber-card">
+                      <div className="image-container">
+                          <img
+                          src={barber.image}
+                          className="card-img-top"
+                          alt={barber.name}
+                          style={{ objectFit: "cover", height: "250px" }}
+                          />
+                      </div>
+                      <div className="card-body d-flex flex-column">
+                          <h3 className="card-title text-center text-white">{barber.name}</h3>
+                      </div>
+                      </div>
+                      </Link>
+                  </div>
+                  ))}
             </div>
         </div>
     </div>

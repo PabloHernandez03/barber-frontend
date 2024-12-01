@@ -14,14 +14,14 @@ const Contact = () => {
     {
       name: "Aaron",
       phone: "+52 1 33 3072 6408",
-      whatsappLink: "https://wa.me/5213330726408?text=Hola,%20quiero%20agendar%20una%20cita.%20¿Podría%20ayudarme?",
+      whatsappLink: "https://wa.me/5213330726408?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana.%20¿Qué%20horas%20tienes%20disponibles?",
       instagram: "https://instagram.com/",
       facebook: "https://facebook.com/",
     },
     {
       name: "Erick",
       phone: "+52 1 33 2825 5950",
-      whatsappLink: "https://wa.me/5213328255950?text=Hola,%20quiero%20agendar%20una%20cita.%20¿Podría%20ayudarme?",
+      whatsappLink: "https://wa.me/5213328255950?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana.%20¿Qué%20horas%20tienes%20disponibles?",
       instagram: "https://instagram.com/",
       facebook: "https://facebook.com/",
     },

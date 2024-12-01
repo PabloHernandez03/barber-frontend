@@ -63,8 +63,3 @@ iframe:hover {
 .azul:hover p{
   color:#007bff;
 }
-
-.expanded-card {
-  border: 2px solid #ffc107;
-  transition: all 0.3s ease-in-out;
-}

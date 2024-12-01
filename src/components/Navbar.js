@@ -69,6 +69,16 @@ function MyNavbar() {
             </Nav.Link>
             <Nav.Link
               as={ScrollLink}
+              to="productos"
+              smooth={true}
+              duration={500}
+              offset={-navbarHeight}
+              onClick={handleClose}
+            >
+              Productos
+            </Nav.Link>
+            <Nav.Link
+              as={ScrollLink}
               to="horario"
               smooth={true}
               duration={500}

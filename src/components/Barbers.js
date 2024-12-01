@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import '../App.css';
-import ScrollToTop from "../components/ScrollToTop";
 
 const barbers = [
   {
@@ -30,7 +29,6 @@ const barbers = [
 const Barbers = () => {
   return (
     <div className="container-fluid bg-dark text-white py-1">
-        <ScrollToTop />
         <div className="container mb-2 mt-4">
             <h1 className="text-center mb-4 text-warning">Conoce a nuestros Barberos</h1>
             <div className="row">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../img/logo.webp";
-import '../App.css';
+import '../Services.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import logo from "../img/logo.webp";
-import "../App.css";
 
 function Products() {
   const [showAll, setShowAll] = useState(false);

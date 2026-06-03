@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import humbertoImage from "../img/humberto.webp";
+import aaronImage from "../img/aaron_600.webp";
+import erickImage from "../img/erick_600.webp";
 import '../App.css';
 
 const barbers = [
@@ -7,21 +10,21 @@ const barbers = [
     id: 1,
     name: 'Humberto "Padrón"',
     description: "Un corte tradicional y preciso para mantener tu estilo impecable.",
-    image: require("../img/humberto.webp"),
+    image: humbertoImage,
     link: "/humberto",
   },
   {
     id: 2,
     name: "Aarón",
     description: "Perfilado, afeitado y detalles para una barba bien cuidada.",
-    image: require("../img/aaron_600.webp"),
+    image: aaronImage,
     link: "/aaron",
   },
   {
     id: 3,
     name: "Erick",
     description: "El paquete completo para un look renovado.",
-    image: require("../img/erick_600.webp"),
+    image: erickImage,
     link: "/erick",
   },
 ];

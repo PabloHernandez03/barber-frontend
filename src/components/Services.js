@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import logo from "../img/logo.webp";
+import humbertoImage from "../img/humberto.webp";
+import aaronImage from "../img/aaron_600.webp";
+import erickImage from "../img/erick_600.webp";
 import '../Services.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
@@ -17,21 +20,21 @@ function Services() {
     {
       id: 1,
       name: 'Humberto',
-      image: require("../img/humberto.webp"),
+      image: humbertoImage,
       phone: "+52 1 33 2811 5400",
       whatsappLink: "https://wa.me/5213328115400?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana%20de%20",
     },
     {
       id: 2,
       name: "Aarón",
-      image: require("../img/aaron_600.webp"),
+      image: aaronImage,
       phone: "+52 1 33 3072 6408",
       whatsappLink: "https://wa.me/5213330726408?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana%20de%20",
     },
     {
       id: 3,
       name: "Erick",
-      image: require("../img/erick_600.webp"),
+      image: erickImage,
       phone: "+52 1 33 2825 5950",
       whatsappLink: "https://wa.me/5213328255950?text=Hola,%20quiero%20agendar%20una%20cita%20para%20mañana%20de%20",
     },

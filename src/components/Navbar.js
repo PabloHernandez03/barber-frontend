@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+import logo from "../img/logo.webp";
 
 function MyNavbar() {
   const [expanded, setExpanded] = useState(false);
@@ -33,7 +34,7 @@ function MyNavbar() {
       <Container>
         <Navbar.Brand as={Link} to="/" onClick={handleClose}>
           <img
-            src={require("../img/logo.webp")}
+            src={logo}
             alt="Royal Style BarberStudio"
             width="40"
             style={{ margin: "5px" }}

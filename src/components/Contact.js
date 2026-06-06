@@ -37,12 +37,12 @@ const Contact = () => {
           <p className="text-center mb-4">
             <strong>Ubicación: </strong>
             <a
-              href="https://maps.app.goo.gl/dXPArC3fX3VqmBtF8"
+              href="https://maps.app.goo.gl/F8DGzqpWB7CM1obA7"
               className="text-warning text-decoration-none"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Camino a la Pedrera #301, Tlajomulco de Zúñiga, México
+              Cam. a La Pedrera 28-Local #7, Lomas de San Agustin, 45650, Tlajomulco de Zúñiga, México
             </a>
           </p>
 
